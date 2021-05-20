@@ -38,9 +38,9 @@
         The only way to check if a certificate has not been tampered with or created fraudulently, one must contact the claimed issuing authority to verify if they actually issued the certificate. 
         This process is usually non-automatable and cumbersome that most people end up giving the benefit of doubt to the applicant. 
         \break
-        We will be proposing an on chain certificate that will be verifiable and auditable in real time.
+        We will be proposing an on-chain certificate that will be verifiable and auditable in real-time.
       \subsubsection{No history}
-        Most certification programmes happen beind closed doors. If an individual produces a certificate it is impossible to know how the certificate was earned. There are probably no records, or even if they are - they aren't publicly viewable. 
+        Most certification programs happen behind closed doors. If an individual produces a certificate it is impossible to know how the certificate was earned. There are probably no records, or even if they are - they aren't publicly viewable. 
         \break
         Now that most of the learning is now happening online over chat platforms like Slack, Discord, Telegram and Zoom, it is possible to have a record of the \textit{trail of learning}. In the solution we will be proposing, every skill certificate will be auditable using publicly available information.
   \section{Specifications}
@@ -60,11 +60,11 @@
       \subsubsection{Public Key}
         Every NFT-L (non-fungible token of learning), will be issued on the main Ethereum chain and queryable by the publickey to get further details about the issuance.
       \subsubsection{Issued By}
-        This is the publickey of the \textbf{Questmaster} who ran the Quest. Who ran the Quest is a very important signal in who issued the Quest. We will see later that the incentives of the Questmaster are tightly tied to the quality of learning accrued by participants in the Quest. 
+        This is the public key of the \textbf{Questmaster} who ran the Quest. Who ran the Quest is a very important signal in who issued the Quest. We will see later that the incentives of the Questmaster are tightly tied to the quality of learning accrued by participants in the Quest. 
       \subsubsection{Issued To}
-        The public key to whom the NFT-L has been issued. This is, unlike regular NFTs, non transferable. 
+        The public key to whom the NFT-L has been issued. This is, unlike regular NFTs, non-transferable. 
       \subsubsection{Quest information}
-        The Quest that this NFT-L was issued as a part of. Each questmaster could potentially have multiple Quests running. 
+        The Quest that this NFT-L was issued as a part of. Each Questmaster could potentially have multiple Quests running. 
       \subsubsection{Time to complete}
         How long it took for the participant to complete the Quest. Though not fool-proof, someone learning something faster than the others assuming they all started at a level ground is a valid signal in the quality of learning of an individual. 
       \subsubsection{Metadata}
@@ -94,7 +94,7 @@
         If there aren't enough applicants who already own a pre-requisite NFT-L, the other participants are sorted by how many Learn Coins they are willing to stake to complete the Quest.
         We will see later that more the participant stakes, more they are invested in learning what is being shared in the Quest.
     \subsection{Time limit}
-      The Questmaster also sets their availablity by setting a tentative duration to the Quest. The participants must complete the Quest before the specified time. Once the Quest is ended by the Questmaster, the participants can no longer get an NFT-L in this version of the Quest.
+      The Questmaster also sets their availability by setting a tentative duration to the Quest. The participants must complete the Quest before the specified time. Once the Quest is ended by the Questmaster, the participants can no longer get an NFT-L in this version of the Quest.
       Again, this is to be respectful of the experts running these Quests. 
     \subsection{Quest Edition}
       The Questmaster can choose to run multiple editions one after another of the same Quest. Each edition opens up the voting mechanism again, where institutes and individuals pay the Questmaster for the new edition. This is how the Questmaster primarily earns on this platform.
@@ -134,6 +134,42 @@
           If the NFT-L is issued, the participants gets back, along with the new NFT-L, the staked NFT-L or the staked Learn Coins.
           \break
           If the participant is not able to get an NFT-L before the Quest ends, the staked NFT-L is burnt and the staked Learn Coins goes into a community pool.
+  \section{Voting process}
+    Voting for new Quests and re-runs of existing Quests is a core pillar of this economy. 
+    There are few reasons for the voting
+    \begin{itemize}
+      \item Shows market demand for the learning outcomes - individuals or institutions voting will be the ones who want to see the material taught and more people skilled in that particular field.
+      \item This is also how the Questmaster is incentivized monetarily. We don't think want to charge the learners for learning.
+      \item Bragging rights!
+    \end{itemize}
+    \subsection{Questmaster Coins}
+      By voting, the voter also gets Coins specific to that Questmaster.
+      \subsubsection{Genesis}
+        The first \textit{g} coins will be reserved for the Questmaster. That will be awarded to the Questmaster upon first signup.
+      \subsubsection{Voting return}
+        When a vote is casted using Learn Coins, the voter gets the following \(\eta\) Questmaster specific Coins defined by the following equation are \textit{minted}
+        \[
+          \eta = m/n^{2}
+        \]        
+        Where,
+        \break
+        \(n\) is the number of Questmaster Coins minted previously
+        \(m\) is a damping constant \(=0.4\)
+      \subsubsection{Questmaster Coin Holder benefits}
+        \begin{itemize}
+          \item Full history of chat when the Quest is on-going, for all Quests of that Questmaster. Others will be able to see only the latest messages till the Quest ends. All the chats are archived and made public only after the end of the Quest.
+          \item Priority intimation of NFT-L issuance. The NFT-L issuance is made public information only 168 hours after the actual issuance. The issuance notification is sent to the Questmaster coin holders in order of priority defined by the number of Coins of that Questmaster held by the user.
+          \item Trade it for on a public exchange
+        \end{itemize}
+      \subsubsection{Scarcity of Questmaster Coins}
+        Though there is no theoretical limit to the number of Questmaster coins that can be minted - there is a pragmatic limit.
+        The most important use of the Questmaster Coins is to get first access to the 
+      \subsubsection{Specification of a Questmaster Coin}
+        An ERC-20-esque token
+        \begin{itemize}
+          \item \textbf{Questmaster publickey} - the public key of the Questmaster
+          \item \textbf{Current owner } - the public key of the owner
+        \end{itemize}
   \section{Uses of NFT-L}
     It is uncertain as to where all NFT-Ls will be used, but it is clear that the application will be as wide, if not wider, as the expanse of certificates itself.
     \subsection{Job Opportunities}
