@@ -9,12 +9,12 @@
     This makes the certificates vulnerable to hampering, and makes it very hard to audit the issuance in the first place.
     We're introducing NFT-L. A non fungible token for learning. These are non transferable tokens of certification of a skill that are decentralised and auditable.
     These are implemented and currently live on QuestBook - a learning app on iOS and Android for professionals. All these NFT-Ls live outside the app itself in the form of an \texttt{EIP 1268} token on the Etherium main-chain.
-    This white-paper introduces the semantics of the NFT-L, the issuance algorithms and an enabling ERC-20 token called Learn Coins.
+    This whitepaper introduces the semantics of the NFT-L, Creator Coins for each user on the platform, their issuance algorithms and an enabling ERC-20 token called Learn Coins.
   \end{abstract}
   \section{Introduction}
     Today the most popular ways of reporting that an individual posses a skill is either through a certificate issued by a certification programme or, worse, by self reporting them on social media.
     Here we highlight some of the problems in the traditional mode of skill development and assessment. 
-    \subsection{Incentives for teachers}
+    \subsection{Problems in - Incentives for teachers}
       Most teachers are teaching on platforms like Teachable, Kajabi and Udemy - in the hope that people will pay them for what they are teaching. 
       This means that the teacher cares only about the number of people coming into the course. The quality of course delivery and making an impact on the learners lives seems to be a distant secondary metric. Teaching is no longer about learning outcomes. It's turned into a popularity contest of attracting largest number of enrolments. 
    
@@ -25,15 +25,14 @@
        With NFT-L, teachers will earn more without charging students. Through small classes and ensuring learning outcomes.
      
        
-    \subsection{Incentives for learners}
+       \subsection{Problems in - Incentives for learners}
       The incentive for a learner is rarely the learning itself. Apart from a handful, most people want to be able to make an impact in their career and their economic mobility by virtue of learning something new. 
       Most certification programmes focus on being able to produce a correct answer in an examination. The incentives of the learner should be tied such that they are encouraged to participate in discussions, make mistakes and collaborate to improve their skills.
       \break
-      In the proposed solution, the incentives are so structured that it is free to learn - but expensive to not learn. Because we provide a learning mode that involves close collaboration with an expert in the field, being respectful of their time is critical. 
+      In the proposed solution, the incentives are so structured that \textbf{it is free to learn - but expensive to not learn}. Because we provide a learning mode that involves close collaboration with an expert in the field, being respectful of their time is critical. 
       We want to consciously weed out people who are here only for information porn and not real learning.
-      
       With NFT-L, learning is always free. Learners learn along with a small cohort of motivated peers interested in the same thing. With the guidance of an expert teacher.
-    \subsection{Certification Verifiability}
+      \subsection{Problems in - Certification Verifiability}
       \subsubsection{Contacting the issuing authority}
         The only way to check if a certificate has not been tampered with or created fraudulently, one must contact the claimed issuing authority to verify if they actually issued the certificate. 
         This process is usually non-automatable and cumbersome that most people end up giving the benefit of doubt to the applicant. 
@@ -56,13 +55,14 @@
         \item \textbf{Quest task} is what the participants must apply the learnings on. This is what the Questmaster will evaluate the participant on. E.g. \textit{Write a for loops in Python to draw a triangle}
         \item \textbf{A proof of learning} at the end of the Quest. A Questmaster approves a participant when they have mastered the material shared in the Quest. Once approved a non-fungible non-transferable token (certificate) is credited to the participant's wallet
       \end{itemize}
-    \subsection{NFT-L specification}
+    \subsection{New Certification - NFT-L}
+      We propose NFT-Ls as a global standard in issuing certificates against attaining a skill.
       \subsubsection{Public Key}
         Every NFT-L (non-fungible token of learning), will be issued on the main Ethereum chain and queryable by the publickey to get further details about the issuance.
       \subsubsection{Issued By}
         This is the public key of the \textbf{Questmaster} who ran the Quest. Who ran the Quest is a very important signal in who issued the Quest. We will see later that the incentives of the Questmaster are tightly tied to the quality of learning accrued by participants in the Quest. 
       \subsubsection{Issued To}
-        The public key to whom the NFT-L has been issued. This is, unlike regular NFTs, non-transferable. 
+        The public key to whom the NFT-L has been issued. This is, unlike regular NFTs, \textbf{non-transferable}. 
       \subsubsection{Quest information}
         The Quest that this NFT-L was issued as a part of. Each Questmaster could potentially have multiple Quests running. 
       \subsubsection{Time to complete}
@@ -73,13 +73,36 @@
           \item NFT-L Merkel root
           \item Signature of issuing platform (e.g. Questbook)
         \end{itemize}
+    \subsection{New Creator Economy Standard - Creator Coins}
+      Every teacher has their own unique set of Creator Coins. This will be based on an ERC-20 Token standard, minted by a Proof of Authority source.
+      \subsubsection{Genesis}
+        Every teacher gets, upon sign up, 10 Creator Coins with their name on it. e.g. Alice Creator Coin, Bob Creator Coin.
+      \subsubsection{Price}
+        There is a price to pay in Learn Coins to mint new Creator Coins. The cost of minting a Creator Coin keeps going up exponentially.
+        Number of Creator Coins of Alice you get \(\eta_{alice}\) by paying 1 Learn Coin is dependent on how many Alice Creator Coins have been minted (\(N_{alice}\)) 
+        \[
+          \eta_{alice} = 10^{-(0.03 * N_{alice})}
+        \]
+        The price paid goes directly to the Creator.
+      \subsubsection{Scarcity}
+        There is no theoretical limit on the number of Creator Coins of a particular Creator. However with growing number of Creator Coins in circulation, the prices will get prohibitively high.
+      \subsubsection{Specifications}
+        Extension of an ERC-20 token specification.
+        \begin{itemize}
+          \item Creator Public Key
+          \item Owner Public Key
+          \item Issuing Authority
+          \item Value (number of coins)
+        \end{itemize}
+
+      
   \section{Teaching Process}
     \subsection{Gating the quality of Quest creators}
       Only high quality Quest creators will be allowed on to the platform to create Quests. To create Quests, the teacher must list their profile along with what they will teach in Quests on a public voting platform.
-      Companies and individuals who want to see that Quest becoming a reality will vote on the Quests by paying up Learn Coins. The top \textit{n} voted quest creators will get to start quests every 24 hours. 
-      \break
-      \textit{n} is doubled every three weeks.
-      \break
+      Companies and individuals who want to see that Quest becoming a reality will vote on the Quests by paying up Learn Coins. The top \textit{n} voted quest creators will get to start quests every 24 hours. \textit{n} will double every month
+      \[
+        n = 2^{t_{month}}
+      \]
       This ensures only good quality and respected creators are actually dropping Quests. Also means that there is sufficient demand for the skill being imparted by this Quest that could potentially lead to an increase in economic mobility.
       All the Learn Coins collected in the voting process is credited to the creator.
     \subsection{Cohort size}
@@ -142,77 +165,74 @@
       \item This is also how the Questmaster is incentivized monetarily. We don't think want to charge the learners for learning.
       \item Bragging rights!
     \end{itemize}
-    \subsection{Questmaster Coins}
-      By voting, the voter also gets Coins specific to that Questmaster.
-      \subsubsection{Genesis}
-        The first \textit{g} coins will be reserved for the Questmaster. That will be awarded to the Questmaster upon first signup.
-      \subsubsection{Voting return}
-        When a vote is casted using Learn Coins, the voter gets the following \(\eta\) Questmaster specific Coins defined by the following equation are \textit{minted}
-        \[
-          \eta = m/n^{2}
-        \]        
-        Where,
-        \break
-        \(n\) is the number of Questmaster Coins minted previously
-        \(m\) is a damping constant \(=0.4\)
-      \subsubsection{Questmaster Coin Holder benefits}
-        \begin{itemize}
-          \item Full history of chat when the Quest is on-going, for all Quests of that Questmaster. Others will be able to see only the latest messages till the Quest ends. All the chats are archived and made public only after the end of the Quest.
-          \item Priority intimation of NFT-L issuance. The NFT-L issuance is made public information only 168 hours after the actual issuance. The issuance notification is sent to the Questmaster coin holders in order of priority defined by the number of Coins of that Questmaster held by the user.
-          \item Trade it for on a public exchange
-        \end{itemize}
-      \subsubsection{Scarcity of Questmaster Coins}
-        Though there is no theoretical limit to the number of Questmaster coins that can be minted - there is a pragmatic limit.
-        The most important use of the Questmaster Coins is to get first access to the 
-      \subsubsection{Specification of a Questmaster Coin}
-        An ERC-20-esque token
-        \begin{itemize}
-          \item \textbf{Questmaster publickey} - the public key of the Questmaster
-          \item \textbf{Current owner } - the public key of the owner
-        \end{itemize}
+    They can purchase Creator Coins from the creator or from a public exchange. If they buy it from the Creator by voting, they are also incentivizing the creator to actually run the Quest.
+    If the price is prohibitively high because of the pricing function, they can buy a small token amount from the Creator to incentivize them and buy more tokens from a public exchange to rank high in ownership of that Creator Coins.
   \section{Uses of NFT-L}
     It is uncertain as to where all NFT-Ls will be used, but it is clear that the application will be as wide, if not wider, as the expanse of certificates itself.
     \subsection{Job Opportunities}
       The institutions who had paid the Questmaster for a particular Quest, could have had the motive of building skills that they want to hire. Producing such an NFT-L to such institutes will be a great optimization in their hiring process.
     \subsection{Grants and Scholarships}
       Questbook will be working closely with institutions and organizations to give out grants like Gitcoin Grants or Scholarships from governments or other NGOs.
+  \section{Uses of Creator Coins}
+    To get the benefits of holding a Creator Coin, the user must own atleast 1.0 Creator Coins or more. 
+    \begin{itemize}
+      \item Full history of chat when the Quest is on-going, for all Quests of that Questmaster. Others will be able to see only the latest messages till the Quest ends. All the chats are archived and made public only after the end of the Quest.
+      \item Priority intimation of NFT-L issuance. The NFT-L issuance is made public information only 168 hours after the actual issuance. The issuance notification is sent to the Questmaster coin holders in order of priority defined by the number of Coins of that Questmaster held by the user.
+      \item Trade it for on a public exchange
+    \end{itemize}
+
   \section{Initial incentivization Model}
     To bootstrap the initial liquidity on the platfrom we will be incentivizing the early customers with Learn Coins - based on a definitive logic.
-    \subsection{Questmasters Incentive Plan}
-      The factors that define the number of Learn Coins a Questmaster gets on dropping the first Quest :
+    First 3M Learn Coins will be distributed as a part of the Initial incentivization plan.
+    \subsection{Questmasters initial Incentive Plan}
+      Total pool = 2M Learn Coins.
+      The factors that define the number of Learn Coins a Questmaster \(L\) gets on dropping the first Quest :
       \begin{itemize}
-        \item \textbf{Number of Coins in votes}, \textit{v}
+        \item Sum of \textbf{Number of Coins in votes}, \textit{v}
         \item \textbf{Authority score} on other social media, \textit{s}
         \item \textbf{Editors' score} based on who will be most useful to the platform as decided by a jury, \textit{e}
       \end{itemize} 
-    \subsection{Learners Incentive Plan}
-      The factors that define number of coins a learner gets upon completion of their first Quest
+      \[
+        L = \Sigma v + (S * s) + e
+      \]
+      \(S = 0.002\)
+
+    \subsection{Learners Initial Incentive Plan}
+      Total Pool = 1M Learn Coins. The factors that define number of coins a learner gets upon completion of their first Quest \(L\)
       \begin{itemize}
-        \item \textbf{Invited by } - the number of Learn Coins owned by the inviter at the time of sign up, \textit{i}
         \item \textbf{Authority score} on other social media, \textit{s}
-        \item \textbf{Time to acceptance} into the first applied Quest, \textit{t}
-        \item \textbf{Time to complete Quest} as compared to other participants in the same cohort, \textit{c}
+        \item \textbf{Time to acceptance} into the first applied Quest, \(t_{accept}\) (number of hours)
+        \item \textbf{Time to complete Quest}, \(t_{complete}\) (number of hours)
         \item \textbf{Editor's score} based on who will be most useful to the platform as decided by a jury, \textit{e}
       \end{itemize}
+      \[
+        L = \frac{S * s}{10 * (5*t_{accept} + t_{complete}) + e}
+      \]
     \subsection{Ongoing incentivization}
-      One percent of all the coins that will ever be in circulation will be distributed every month to the users of the platform using a weighted randomization process. 
-      \subsubsection{Questmaster signals}
+      Every month 100,000 Learn Coins will be distributed to the top \(5\%\) of the Questmasters using the following weighting \(w\) 
+      \subsubsection{Questmaster}
         \begin{itemize}
-          \item Number of NFT-Ls issued
-          \item Number of Participants in the Quests
-          \item Number of Learn Coins paid as vote in the last completed Quest
-          \item Number of NFT-Ls staked and recovered
-          \item Number of Learn Coins staked in all the latest edition of each Quest, in aggregate
+          \item Number of NFT-Ls issued ever by this Questmaster, \(N\)
+          \item Number of Learn Coins paid as vote in the last completed Quest \(v_{last}\)
+          \item Number of NFT-Ls issued by this Questmaster staked and recovered ever \(R\)
+          \item Number of Learn Coins staked in last ended Quest \(\sigma_{last}\)
+          \item Number of months since the ending of the last Quest \(t_{last}\)
         \end{itemize}
-        Equation for distributing Learn Coins to Questmasters : TODO
-      \subsubsection{Learner signals}  
+        Equation for distributing Learn Coins to Questmasters :
+        \[
+          w =  v_{last} * e * \frac{R}{N} * \frac{t_{last}^{0.9}}{e^t_{last}}
+        \]
+
+      \subsubsection{Learner }  
+        Every month 100,000 Learn Coins will be distributed to the top \(20\%\) of the Learners using the following weighting \(w\) 
         \begin{itemize}
-          \item Number of NFT-Ls earned
-          \item Amount of time to earn each NFT-L earned as a function of time spent by others in the same Quest
-          \item Amount of Learn Coins staked and recovered
-          \item Sum of number Learn Coins used to vote on the latest edition of the Quest who's NFT-Ls were staked and recovered
+          \item NFT-Ls earned in Quest \(q\)
+          \item Total Learn Coins used to vote on the Quest \(\sigma_q\)
+          \item Total NFT-Ls issued so far in the Quest \(N_q\)
         \end{itemize}
-        Equation : TODO
+        \[
+          w = \Sigma_{q} \frac{\sigma_q}{N_q}
+        \]
   \section{Governance}
     \subsection{Issuance of NFT-Ls}
       The NFT-L is an open standard that can be issued by any individual. However, the NFT-L also holds an optional Meta-data that signifies which platform this NFT-L was issued on.
@@ -220,7 +240,7 @@
       \break
       There is no requirement for an NFT-L to be issued on the Questbook app alone. Infact, we would encourage more platforms to adopt and improve a standard for learning certification that is decentralized and verifiable.
     \subsection{Learn Coins}
-      Learn Coins will be minted in a Proof-of-Authority model on the Questbook App. The minting will follow the equation : TODO
+      Learn Coins will be minted in a Proof-of-Authority model on the Questbook App. Every month 200,000 Learn Coins will be minted. The damping function will be decided on a later date.
   \section{Example}
     Here we will illustrate end to end how the ecosystem will use the specifications and implementation.
     \par
