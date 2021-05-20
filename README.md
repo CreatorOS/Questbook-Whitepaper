@@ -1,0 +1,4 @@
+# Contributing
+```
+  pdflatex whitepaper.tex
+```
