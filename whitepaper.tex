@@ -1,32 +1,38 @@
 \documentclass{article}
 \usepackage{multicol}
 \author{Authors}
-\title{NFT-L : A decentralized, verifiable protocol for skill credentialling}
+\title{NFT-L : A decentralised, verifiable protocol for skill credentialing}
 \begin{document}
   \maketitle
   \begin{abstract}
-    Traditionally, we've used certificates issued by centralized authorities as proof of posessing a skill.
+    Traditionally, we've used certificates issued by centralised authorities as proof of possessing a skill.
     This makes the certificates vulnerable to hampering, and makes it very hard to audit the issuance in the first place.
-    We're introducing NFT-L. A non fungible token for learning. These are non transferable tokens of certification of a skill that are decentralized and auditable.
-    The NFT-L's will be introduced within an app called Questbook, however the NFT-Ls can and should live outside the app itself in the form of an \texttt{EIP 1268} token on the ethereum main-chain.
-    This whitepaper introduces the semantics of the NFT-L, the issuance algorithms and an enabling ERC-20 token called Learn Coins.
+    We're introducing NFT-L. A non fungible token for learning. These are non transferable tokens of certification of a skill that are decentralised and auditable.
+    These are implemented and currently live on QuestBook - a learning app on iOS and Android for professionals. All these NFT-Ls live outside the app itself in the form of an \texttt{EIP 1268} token on the Etherium main-chain.
+    This white-paper introduces the semantics of the NFT-L, the issuance algorithms and an enabling ERC-20 token called Learn Coins.
   \end{abstract}
   \section{Introduction}
     Today the most popular ways of reporting that an individual posses a skill is either through a certificate issued by a certification programme or, worse, by self reporting them on social media.
-    Here we highlight some of the problems in the traditional mode of skill development and assesment. 
+    Here we highlight some of the problems in the traditional mode of skill development and assessment. 
     \subsection{Incentives for teachers}
       Most teachers are teaching on platforms like Teachable, Kajabi and Udemy - in the hope that people will pay them for what they are teaching. 
-      This means that the teacher cares only about the number of people coming into the course. The quality of course delivery and making an impact on the learners lives seems to be a distant secondary metric. 
-      The impact is probably captured, at best if at all, through an easy to game 5 point rating system or conviniently ranked comments section.
+      This means that the teacher cares only about the number of people coming into the course. The quality of course delivery and making an impact on the learners lives seems to be a distant secondary metric. Teaching is no longer about learning outcomes. It's turned into a popularity contest of attracting largest number of enrolments. 
+   
+      The impact is probably captured, at best if at all, through an easy to game 5 point rating system or conveniently ranked comments section.
       \break
-      If the learner is coming through the front door, it is a win for the teacher. We think this is fundamentally flawed and incentive structures are designed for a poor learning experience. 
-      We propose that the teachers are incentivized by the people or institutions who most need the teacher to that topic. For example, if Acme Corp wants more people to be trained in it's new CRM Dashboard, Acme Corp should incentivize (aka pay) some of the top teachers to run these courses.
+       Online education market places are centralised and reward teachers for enrolments. We think this is fundamentally flawed and incentive structures are designed for a poor learning experience. Using crypto we can create a far better incentive structures that are directly tied to learning outcomes. We propose teachers issuing tokens. This creates a far higher liquidity. For example, if Acme Corp wants to hire graduates from a teacher's courses, they will invest in her. Or the alumni who found the course useful will buy the tokens because they know it'll be useful for more.
+       
+       With NFT-L, teachers will earn more without charging students. Through small classes and ensuring learning outcomes.
+     
+       
     \subsection{Incentives for learners}
       The incentive for a learner is rarely the learning itself. Apart from a handful, most people want to be able to make an impact in their career and their economic mobility by virtue of learning something new. 
-      Most certifcation programmes focus on being able to produce a correct answer in an examination. The incentives of the learner should be tied such that they are encouraged to participate in discussions, make mistakes and collaborate to improve their skills.
+      Most certification programmes focus on being able to produce a correct answer in an examination. The incentives of the learner should be tied such that they are encouraged to participate in discussions, make mistakes and collaborate to improve their skills.
       \break
       In the proposed solution, the incentives are so structured that it is free to learn - but expensive to not learn. Because we provide a learning mode that involves close collaboration with an expert in the field, being respectful of their time is critical. 
       We want to consciously weed out people who are here only for information porn and not real learning.
+      
+      With NFT-L, learning is always free. Learners learn along with a small cohort of motivated peers interested in the same thing. With the guidance of an expert teacher.
     \subsection{Certification Verifiability}
       \subsubsection{Contacting the issuing authority}
         The only way to check if a certificate has not been tampered with or created fraudulently, one must contact the claimed issuing authority to verify if they actually issued the certificate. 
