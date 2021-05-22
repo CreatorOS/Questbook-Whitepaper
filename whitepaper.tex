@@ -4,43 +4,64 @@
 
 \author{Authors}
 \title{LearnT - Specification for a decentralized learning economy}
+%\title{LearnT - Blueprint for a decentralized university}
 \begin{document}
   \maketitle
   \begin{abstract}
-    Traditionally, we've used certificates issued by centralised authorities as proof of possessing a skill.
-    This makes the certificates vulnerable to hampering, and makes it very hard to audit the issuance in the first place.
-    We're introducing NFT-L. A non fungible token for learning. These are non transferable tokens of certification of a skill that are decentralised and auditable.
+    A decentralised learning economy in one in which a teacher is economically incentivized only to \textit{drive learning outcomes}.
+    The market runs  with a native protocol token (also called “LearnT”), which teachers earn by floating courses. 
+    Conversely, recruiters spend LearnT for being able to hire graduates of these courses. 
+    Teachers compete to attract best students and sizeable rewards from recruiters, thus freeing them off the burden of charging students. 
     \par
-    The economic incentives in learning are broken. This paper also explores a whole new economic structure for incentivizing all the stakeholders in the learning process - the teacher, learner \textit{and} those who benefit from people learning a skill. 
-    These are implemented and currently live on QuestBook - a learning app on iOS and Android for professionals. 
+    This work introduces
+    \begin{itemize}
+      \item NFT-Ls which are non-transferable tokens of proof of mastery. 
+        This is an extension of ERC-721 and EIP-1238, available on the Ethereum main-chain. 
+        We will be specifying the open standard for these decentralize certificates.
+      \item Verifiable and Auditable proofs of learning. 
+        The complete set of events leading to the learning outcomes are publicly stored and accessible on IPFS.
+        Every NFT-L references this \textit{trail of learning}
+      \item Creator Coins, which is a tradable token that gives access to graduates of courses run by a particular course creator.
+        These are extensions of ERC-20 tokens and prices are set by a bonding curve for every creator - initiating immediate liquidity.
+      \item A new format of teaching and learning, and economic incentive structure for a fully functional end-to-end learning market.
+      \item LearnT or Learn Coins is the underlying currency that enables the entire LearnT protocol. 
+        We will touch upon the uses of this ERC-20 token multiple times in this paper.
+    \end{itemize}
     \par
-    All these NFT-Ls (equivalent of certificates of skill) live outside the app itself in the form of an \texttt{EIP 1238} token on the Etherium main-chain.
-    Economic constructs introduced in this paper include Learn Coins, Creator Coins and issuance algorithms for the same. These are implemented using a Proof of Authority system on the Questbook app. However they can be withdrawn to the mainchain since they are extensions of ERC-20 tokens - thereby making them completely decentralized.
+    These specifications are being implemented on an app called Questbook - a learning app for professionals available across devices.
+
   \end{abstract}
   \section{Introduction}
+    Today,
     \begin{itemize}
-      \item Today the most popular ways of reporting that an individual posses a skill is either through a certificate issued by a certification programme or, worse, by self reporting them on social media.
       \item The only way as of today to incentivize the teacher is to extract a fees from the learner. This does not give any incentive for the teacher to improve learning outcomes by reducing the number of students - rather forces them to increase the class size, earn more money, and deliver \textit{lesser} learning outcomes.
-      \item The current economic models completely leave out a crucial stakeholder in the learning process. The companies, organizations and individuals who benefit from a learner picking up a skill. For example, recruiters. These are people usually with high paying capacity, most vested in skilled individuals - but yet not part of the economy.
+      \item The current economic models completely leave out a crucial stakeholder in the learning process - the companies, organizations and individuals who recruit these learners. These are people usually with high paying capacity, most vested in skilled individuals - but yet not part of the economy.
+      \item The most popular ways of reporting that an individual posses a skill is either through a certificate issued by a certification programme or, worse, by self reporting them on social media. There are limited ways to verify or audit these claims.
     \end{itemize}
     Here we highlight some of the problems in the traditional mode of skill development and assessment. 
     \subsection{Problems in - Incentives for teachers}
       Most teachers are teaching on platforms like Teachable, Kajabi and Udemy - in the hope that people will pay them for what they are teaching. 
       This means that the teacher cares only about the number of people coming into the course. The quality of course delivery and making an impact on the learners lives seems to be a distant secondary metric. Teaching is no longer about learning outcomes. It's turned into a popularity contest of attracting largest number of enrolments. 
       \par
-       Online education market places are centralised and reward teachers for enrolments. We think this is fundamentally flawed and incentive structures are designed for a poor learning experience. Using crypto we can create a far better incentive structures that are directly tied to learning outcomes. We propose teachers issuing tokens. This creates a far higher liquidity.
-       With NFT-L, teachers will earn more without charging students. Through small classes and ensuring learning outcomes.
+       Online education market placesare centralised and reward teachers for enrolments. We think this is fundamentally flawed and incentive structures are designed for a poor learning experience. 
+       Using decentralised systems we can create a far better incentive structures that are directly tied to learning outcomes. 
+       With LearnT, teachers will earn more without charging students - through small classes and ensuring learning outcomes.
      
        
-       \subsection{Problems in - Incentives for learners}
-      In the proposed solution, the incentives are so structured that \textbf{it is free to learn - but expensive to not learn}. Because we provide a learning mode that involves close collaboration with an expert in the field, being respectful of their time is critical. 
-      We want to consciously weed out people who are here only for information porn and not real learning.
-      With Questbook, learning is always free. Learners learn along with a small cohort of motivated peers interested in the same thing, with the guidance of an expert teacher.
-      \subsection{Problems in - Certification Verifiability}
+    \subsection{Problems in - Incentives for learners}
+      Many learners get tricked into enrolling for courses without knowing how their lives will be transformed because of this course.
+      Learners, consciously or sub consciously, choose the best marketed course as ones to take up. 
+      When they do enroll on an online course they do not have skin in the game. 
+      Dropoffs are rampant and there is no incentive to acually learning from the course.
+      \par
+      With Questbook, learning is always free. 
+      Learners learn along with a small cohort of motivated peers interested in the same thing, with the guidance of an expert teacher.
+      We will be introducing the incentive structures that drive away non-serious learners.
+    \subsection{Problems in - Certification Verifiability}
       \subsubsection{Contacting the issuing authority}
         The only way to check if a certificate has not been tampered with or created fraudulently, one must contact the claimed issuing authority to verify if they actually issued the certificate. 
         This process is usually non-automatable and cumbersome that most people end up giving the benefit of doubt to the applicant. 
-        \break
+        \par
         We will be proposing an on-chain certificate that will be verifiable and auditable in real-time.
       \subsubsection{No history}
         Most certification programs happen behind closed doors. If an individual produces a certificate it is impossible to know how the certificate was earned. There are probably no records, or even if they are - they aren't publicly viewable. 
@@ -247,9 +268,29 @@
     \subsection{Learn Coins}
       Learn Coins will be minted in a Proof-of-Authority model on the Questbook App. Every month 200,000 Learn Coins will be minted. The damping function will be decided on a later date.
   \section{Conclusion}
-  TODO
+    We have introduced and demonstraded a functional economy that can be built on top of learning outcomes. The incentive structures make learning completely free, auditable and verifiable. 
+    To achieve this, we have proposed a LearnT protocol enabled by NFT-Ls, Creator Coins and Learn Coins - along with a new way of teaching and whole new economy with clearly specified incentives for each stakeholder.
+    This economy is simple and captures the core essence of where the value is created in the learning ecosystem.
+    This solution dismantles the assumptions we've been making for centuries about how teaching should happen - and adapts it to the now available technologies.
   \section{Future Work}
-  TODO
+    Some work around making the system even more decentralised. These include
+    \subsection{Ongoing Work}
+      \begin{itemize}
+        \item Creator Coins issuance using Proof of Stake or any decentralized consensus algorithms, instead of the current Proof of Authority model.
+        \item Learn Coins issuance using Proof of Stake or any decentralised consensus algorithms, instead of the current Proof of Authority model.
+        \item
+      \end{itemize}
+    \subsection{Interesting next questions}
+      \begin{itemize}
+        \item Can we build a consensus algorithm for defining learning outcomes?
+        \item Can we guarantee learners a job if a certain threshold of learning outcome is met?
+        \item Can we establish a consensus driven assessment algorithms?
+      \end{itemize}
+
+  \pagebreak
+  Appendix
+  \pagebreak
+  \appendix
   \section{Example}
     Here we will illustrate end to end how the ecosystem will use the specifications and implementation.
     \par
@@ -264,7 +305,7 @@
     Danny is a freelancer who works with CRMs once in a while
     \par
     Acme Corp wants Alice to run Quests that it can hire as customer success executives at Acme Corp.
-    Acme Corp usually pays 10k USD to a hiring agency for every customer success hire they make. But they decide to put in 5,000 USD into finding a hire through Questbook. They buy 5,000 USD worth of learn coins and vote for Alice's Quest on \textit{Pro-User of Acme CRM}
+    Acme Corp usually pays 10k USD to a hiring agency for every customer success hire they make. But they decide to put in 5,000 USD into finding a hire through Questbook. They buy 5,000 USD worth of learn coins and vote for Alice's Quest on \textit{Pro-User of Acme CRM} and buy 50 Alice Creator Coins.
     \par
     Alice typically makes 10k USD per month in her consulting firm. So, for her 5K is a welcome top up. She agrees to do the Quest for Acme Corp. She decides to do a series of 5 Quests.
     They are : \textit{Introduction to CRMs, Installing Acme CRM, Importing all customers to Acme CRM, Tips and tricks for Acme CRM, Pro User of Acme CRM}.
@@ -288,7 +329,7 @@
     Both Bob and Charlie have now become good friends with each other and with Alice. They casually move into the most important Quest - Pro user. 
     This time Danny doesn't even show up. Everyone's happy. Bob and Charlie dig deep into all the wisdom Alice has to share and really become Pro users of Acme CRM. Alice, ofcourse grants both of them the NFT-Ls.
     \par
-    Acme Corp sees that 2 people have completed the Quests, quickly check how the conversations went in each of the NFT-Ls. They're happy to see how well Alice conducted the sessions. 
+    Acme Corp sees that 2 people have completed the Quests, because they own 50 Alice Creator Coins they are informed first. They quickly check how the conversations went in each of the NFT-Ls. They're happy to see how well Alice conducted the sessions. 
     They interview both Bob and Charlie directly with the CEOs not needing the initial rounds. Both of them get hired.
     \par
     Acme Corp sees this is way more efficient than paying a hiring agency. They set out a budget of 50K USD to hire the next 10 customer success executives. They vote for Alice and 2 more Youtubers like her.
