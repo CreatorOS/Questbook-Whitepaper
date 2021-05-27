@@ -4,12 +4,13 @@
 
 \author{Authors}
 \title{LearnT - Specification for a decentralized learning economy}
-%\title{LearnT - Blueprint for a decentralized university}
 \begin{document}
   \maketitle
   \begin{abstract}
     A decentralised learning economy in one in which a teacher is economically incentivized only to \textit{drive learning outcomes}.
-    The market runs  with a native protocol token (also called “LearnT”), which teachers earn by floating courses. 
+    This economy also determines what is taught and learnt in the world through a consensus model involving stakeholders who have skin in the game.
+    \par
+    The market runs  with a native protocol token (also called “LearnT” or "Learn Coins"), which teachers earn by floating courses. 
     Conversely, recruiters spend LearnT for being able to hire graduates of these courses. 
     Teachers compete to attract best students and sizeable rewards from recruiters, thus freeing them off the burden of charging students. 
     \par
@@ -21,10 +22,8 @@
       \item Verifiable and Auditable proofs of learning. 
         The complete set of events leading to the learning outcomes are publicly stored and accessible on IPFS.
         Every NFT-L references this \textit{trail of learning}
-      \item Creator Coins, which is a tradable token that gives access to graduates of courses run by a particular course creator.
-        These are extensions of ERC-20 tokens and prices are set by a bonding curve for every creator - initiating immediate liquidity.
       \item A new format of teaching and learning, and economic incentive structure for a fully functional end-to-end learning market.
-      \item LearnT or Learn Coins is the underlying currency that enables the entire LearnT protocol. 
+      \item Learn Coins is the underlying currency that is used to vote on what and how the future of learning shapes. 
         We will touch upon the uses of this ERC-20 token multiple times in this paper.
     \end{itemize}
     \par
@@ -34,9 +33,9 @@
   \section{Introduction}
     Today,
     \begin{itemize}
-      \item The only way as of today to incentivize the teacher is to extract a fees from the learner. This does not give any incentive for the teacher to improve learning outcomes by reducing the number of students - rather forces them to increase the class size, earn more money, and deliver \textit{lesser} learning outcomes.
+      \item The only way as of today to incentivize the teacher is to extract a fees from the learner. This does not give any incentive for the teacher to improve learning outcomes.There is no incentive reducing the number of students - rather forces them to increase the class size, earn more money, and deliver \textit{lesser} learning outcomes.
       \item The current economic models completely leave out a crucial stakeholder in the learning process - the companies, organizations and individuals who recruit these learners. These are people usually with high paying capacity, most vested in skilled individuals - but yet not part of the economy.
-      \item The most popular ways of reporting that an individual posses a skill is either through a certificate issued by a certification programme or, worse, by self reporting them on social media. There are limited ways to verify or audit these claims.
+      \item The most popular ways of reporting that an individual posses a skill is either through a certificate issued by a certification programme or, worse, by self reporting them on social media. There are little or no ways to verify or audit these claims.
     \end{itemize}
     Here we highlight some of the problems in the traditional mode of skill development and assessment. 
     \subsection{Problems in - Incentives for teachers}
@@ -46,7 +45,6 @@
        Online education market placesare centralised and reward teachers for enrolments. We think this is fundamentally flawed and incentive structures are designed for a poor learning experience. 
        Using decentralised systems we can create a far better incentive structures that are directly tied to learning outcomes. 
        With LearnT, teachers will earn more without charging students - through small classes and ensuring learning outcomes.
-     
        
     \subsection{Problems in - Incentives for learners}
       Many learners get tricked into enrolling for courses without knowing how their lives will be transformed because of this course.
@@ -81,7 +79,7 @@
         \item \textbf{A proof of learning} at the end of the Quest. A Questmaster approves a participant when they have mastered the material shared in the Quest. Once approved a non-fungible non-transferable token (certificate) is credited to the participant's wallet
       \end{itemize}
     \subsection{New Certification - NFT-L}
-      We propose NFT-Ls as an \textbf{open global standard} in issuing certificates against attaining a skill. These NFT-Ls consist of the following information.
+      We propose NFT-Ls as an \textbf{open global standard} in issuing certificates against attaining a skill. This will be awarded upon completion of a particular Quest. These NFT-Ls consist of the following information.
       \subsubsection{Public Key}
         Every NFT-L (non-fungible token of learning), will be issued on the main Ethereum chain and queryable by the publickey to get further details about the issuance.
       \subsubsection{Issued By}
@@ -98,41 +96,17 @@
           \item NFT-L Merkel root
           \item Signature of issuing platform (e.g. Questbook)
         \end{itemize}
-    \subsection{New Creator Economy Standard - Creator Coins}
-      On the Questbook app, a Questmaster is a Creator. Every creator has their own unique set of Creator Coins. This will be based on an ERC-20 Token standard, minted by a Proof of Authority source.
-      \subsubsection{Genesis}
-        Every teacher gets, upon sign up, 10 Creator Coins with their name on it. e.g. Alice Creator Coin, Bob Creator Coin.
-      \subsubsection{Price}
-        There is a price to pay in Learn Coins to mint new Creator Coins. The cost of minting a Creator Coin keeps going up exponentially.
-        Number of Creator Coins of Alice you get \(\eta_{alice}\) by paying 1 Learn Coin is dependent on how many Alice Creator Coins have been minted (\(N_{alice}\)) 
-        \[
-          \eta_{alice} = 10^{-(0.03 * N_{alice})}
-        \]
-        The price paid goes directly to the Creator i.e. Alice.
-      \subsubsection{Scarcity}
-        There is no theoretical limit on the number of Creator Coins of a particular Creator. However with growing number of Creator Coins in circulation, the prices will get prohibitively high.
-      \subsubsection{Specifications}
-        Extension of an ERC-20 token specification.
-        \begin{itemize}
-          \item Creator Public Key
-          \item Owner Public Key
-          \item Issuing Authority
-          \item Value (number of coins)
-        \end{itemize}
-
       
   \section{Teaching Process}
-    \subsection{Gating the quality of Quest creators}
-      Only high quality Quest creators will be allowed on to the platform to create Quests. To create Quests, the teacher must list their profile along with what they will teach in Quests on a public voting platform.
-      Companies and individuals who want to see that Quest becoming a reality will vote on the Quests by paying up Learn Coins. The top \textit{n} voted quest creators will get to start quests every 24 hours. \textit{n} will double every month
-      \[
-        n = 2^{t_{month}}
-      \]
-      This ensures only good quality and respected creators are actually dropping Quests. Also means that there is sufficient demand for the skill being imparted by this Quest.
-      All the Learn Coins collected in the voting process is credited to the Questmaster.
+    \subsection{Gating the quality of Quests}
+        Only high quality Quests will be allowed on the platform.
+        A high quality Quest is one that drives valuable learning outcomes. 
+        Individuals and Companies looking to hire talent can vote on what gets taught on the platform by staking Learn Coins on individual Quests.
+        \par
+        The top \(n\) Quests every day will be allowed to start. Any Quest that is allowed to start, credits the staked Learn Coins to the creator.
     \subsection{Cohort size}
       Questbook recommends Questmasters start their first Quest with a small group of four participants. Gradually increasing the cohort size with experience. 
-      This is because it is hard enough to teach a group of learners, but even more so on a new platform.
+      Research shows that smaller class sizes drive better learning outcomes. %TODO(ruchil): add citation
     \subsection{Gating participants}
       All the users who have shown interest in parcipating in the Quest are listed for the Questmaster to approve entry to the Quest. They are prioritized based on the following two signals.
       \subsubsection{Staking an NFT-L}
@@ -142,7 +116,8 @@
         If there aren't enough applicants who already own a pre-requisite NFT-L, the other participants are sorted by how many Learn Coins they are willing to stake to complete the Quest.
         We will see later that more the participant stakes, more they are invested in learning what is being shared in the Quest.
     \subsection{Time limit}
-      The Questmaster also sets their availability by setting a tentative duration to the Quest. The participants must complete the Quest before the specified time. Once the Quest is ended by the Questmaster, the participants can no longer get an NFT-L in this version of the Quest.
+      The Questmaster also sets their availability by setting a tentative duration to the Quest. The participants must complete the Quest before the specified time. 
+      Once the Quest is ended by the Questmaster, the participants can no longer get an NFT-L in this version of the Quest.
       Again, this is to be respectful of the experts running these Quests. 
     \subsection{Quest Edition}
       The Questmaster can choose to run multiple editions one after another of the same Quest. Each edition opens up the voting mechanism again, where institutes and individuals pay the Questmaster for the new edition. This is how the Questmaster primarily earns on this platform.
@@ -154,15 +129,19 @@
           \item \textbf{Questmaster Reputation }: Reputation of the Questmaster is a function of how many participants participated in all their Quests aggregated and the number of NFT-Ls they've issued. Indicating the quality of the Questmaster.
           \item \textbf{Quest edition }: How many times has this Quest been run before. More it has been run, more it has been battle tested.
           \item \textbf{Votes }: Number of Learn Coins paid to Questmaster to run this Quest - thereby suggesting the market value of the skill taught in this Quest. Resets to zero at every edition of the Quest.
-          \item \textbf{Avg. time to complete Quest }: Those who have been awarded an NFT-L in an earlier edition of this Quest, how long did it take them to get it. Indication of time commitment required from the learner. 
+          \item \textbf{Average time to complete Quest }: Those who have been awarded an NFT-L in an earlier edition of this Quest, how long did it take them to get it. Indication of time commitment required from the learner. 
           \item \textbf{Last issued NFT-L }:  When was the last NFT-L issued in any earlier or current edition of this Quest. This shows how active the Quest is right now. 
           \item \textbf{Pre-requisite NFT-L }: An NFT-L that is suggested pre-requisite to attend this Quest. Suggests what knowledge is required to make the most off of this Quest.
         \end{itemize}
     \subsection{Learning Material}
         The learning material is public and anyone can view it without participating in the Quest. 
         These are typically links, videos or PDFs. The user can see if they want to master the material by participating in the Quest. 
+        Allowing learners to consume instructional material outside class, and using discussions to answer questions and drive curiousity has proven better results. %TODO(ruchil) : citation
+        \par
         Learning Material is only a small part of the learning process. Lot of people are used to assimilating information but never applying it. 
-        Anyone is free to open these learning material. The ones who want to master can choose to participate in the Quest by requesting an entry to the Quest.
+        Anyone is free to open these learning material. 
+        The ones who want to master can choose to participate in the Quest by requesting an entry to the Quest.
+        Questbook focuses on Mastery.
     \subsection{Requesting Entry}
         All the Quests are gated and number of participants limited. To participate, one must produce one of :
         \subsubsection{A pre-requisite NFT-L}
@@ -185,27 +164,37 @@
           If the participant is not able to get an NFT-L before the Quest ends, the staked NFT-L is burnt and the staked Learn Coins goes into a community pool.
   \section{Voting process}
     Voting for new Quests and re-runs of existing Quests is a core pillar of this economy. 
+    Voting happens by staking Learn Coins on a particular Quest.
     There are few reasons for the voting
     \begin{itemize}
-      \item Shows market demand for the learning outcomes - individuals or institutions voting will be the ones who want to see the material taught and more people skilled in that particular field.
-      \item This is also how the Questmaster is incentivized monetarily. We don't think want to charge the learners for learning.
-      \item Bragging rights!
+      \item \textbf{Determining what needs to be taught on the platform, and in the world.}
+      \item Shows market demand for the learning outcomes - recruiters could vote to get access to potential hires.
+      \item This is also how the Questmaster is incentivized monetarily. We don't want to charge the learners for learning.
     \end{itemize}
-    They can purchase Creator Coins from the creator or from a public exchange. If they buy it from the Creator by voting, they are also incentivizing the creator to actually run the Quest.
-    If the price is prohibitively high because of the pricing function, they can buy a small token amount from the Creator to incentivize them and buy more tokens from a public exchange to rank high in ownership of that Creator Coins.
   \section{Uses of NFT-L}
     It is uncertain as to where all NFT-Ls will be used, but it is clear that the application will be as wide, if not wider, as the expanse of certificates itself.
     \subsection{Job Opportunities}
       The institutions who had paid the Questmaster for a particular Quest, could have had the motive of building skills that they want to hire. Producing such an NFT-L to such institutes will be a great optimization in their hiring process.
     \subsection{Grants and Scholarships}
       Questbook will be working closely with institutions and organizations to give out grants like Gitcoin Grants or Scholarships from governments or other NGOs.
-  \section{Uses of Creator Coins}
-    To get the benefits of holding a Creator Coin, the user must own atleast 1.0 Creator Coins or more. 
-    \begin{itemize}
-      \item Full history of chat when the Quest is on-going, for all Quests of that Questmaster. Others will be able to see only the latest messages till the Quest ends. All the chats are archived and made public only after the end of the Quest.
-      \item Priority intimation of NFT-L issuance. The NFT-L issuance is made public information only 168 hours after the actual issuance. The issuance notification is sent to the Questmaster coin holders in order of priority defined by the number of Coins of that Questmaster held by the user.
-      \item Trade it for on a public exchange
-    \end{itemize}
+  \section{Uses of a Staking}
+    \subsection{Access to graduates}
+      The more you stake in a Quest, the sooner you know about the \textit{graduates} of that Quest.
+      The more the difference in your stake as against the next in line, the more the time difference between when you get access to the graduates as against the next.
+    \subsection{Recommending learners}
+      Having stake in the Quest, companies can recommend few of their employees to undergo the Quest to upskill themselves.
+    \subsection{Access to audit}
+      When the Quest is on-going, the chat history is not public. It is made public only when the Quest has ended.
+      The users who have staked Learn Coins on a Quest, get access to chat history before the Quest has ended. 
+      They get access to chat history as a function of Learn Coins staked.
+    \subsection{Creator Benefits}
+      Creator may provide various advantages to the staking companies. Or, apps could be built on top of this layer. Some of the examples include 
+      \begin{itemize}
+        \item Priority inbox
+        \item \textit{Guest Lectures} in the Quest
+        \item Participation in Quest design 
+        \item Community recommended add-ons.
+      \end{itemize}
 
   \section{Initial incentivization Model}
     To bootstrap the initial liquidity on the platfrom we will be incentivizing the early customers with Learn Coins - based on a definitive logic.
@@ -216,10 +205,11 @@
       \begin{itemize}
         \item Sum of \textbf{Number of Learn Coins in votes} across all Quests by that Questmaster, \textit{v}
         \item \textbf{Authority score} on other social media, \textit{s}
-        \item \textbf{Editors' score} based on who will be most useful to the platform as decided by a jury, \textit{e}
+        \item \textbf{Editors' score} based on who will be most useful to the platform as decided by a jury, \textit{E}
       \end{itemize} 
       \[
-        L = \sum v + (S * s) + e
+        TODO
+        %L = \sum v + (S * s) + E
       \]
       \(S = 0.002\)
 
@@ -229,10 +219,11 @@
         \item \textbf{Authority score} on other social media, \textit{s}
         \item \textbf{Time to acceptance} into the first applied Quest, \(t_{accept}\) (number of hours)
         \item \textbf{Time to complete Quest}, \(t_{complete}\) (number of hours)
-        \item \textbf{Editor's score} based on who will be most useful to the platform as decided by a jury, \textit{e}
+        \item \textbf{Editor's score} based on who will be most useful to the platform as decided by a jury, \textit{E}
       \end{itemize}
       \[
-        L = \frac{S * s}{10 * (5*t_{accept} + t_{complete})} + e
+        TODO
+        %L = \frac{S * s}{10 * (5*t_{accept} + t_{complete})} + E
       \]
     \subsection{Ongoing incentivization}
       Every month 100,000 Learn Coins will be distributed to the top \(5\%\) of the Questmasters using the following weighting \(w\) 
@@ -259,88 +250,29 @@
         \[
           w = \sum_{q} \frac{\sigma_q}{N_q}
         \]
-  \section{Governance}
-    \subsection{Issuance of NFT-Ls}
-      The NFT-L is an open standard that can be issued by any individual. However, the NFT-L also holds an optional Meta-data that signifies which platform this NFT-L was issued on.
-      Any platform can implement the Questbook specification or improve upon it and implement their own specification. That signature when added to the meta-data assigns some credibility as to how the NFT-L was issued.
-      \break
-      There is no requirement for an NFT-L to be issued on the Questbook app alone. Infact, we would encourage more platforms to adopt and improve a standard for learning certification that is decentralized and verifiable.
-    \subsection{Learn Coins}
-      Learn Coins will be minted in a Proof-of-Authority model on the Questbook App. Every month 200,000 Learn Coins will be minted. The damping function will be decided on a later date.
-  \section{Conclusion}
-    We have introduced and demonstraded a functional economy that can be built on top of learning outcomes. The incentive structures make learning completely free, auditable and verifiable. 
-    To achieve this, we have proposed a LearnT protocol enabled by NFT-Ls, Creator Coins and Learn Coins - along with a new way of teaching and whole new economy with clearly specified incentives for each stakeholder.
-    This economy is simple and captures the core essence of where the value is created in the learning ecosystem.
-    This solution dismantles the assumptions we've been making for centuries about how teaching should happen - and adapts it to the now available technologies.
-  \section{Future Work}
-    Some work around making the system even more decentralised. These include
-    \subsection{Ongoing Work}
+  \section{Governance and Future Work}
+    A core fundamental of Questbook is to make learning free and accessible to everyone. 
+    We think it is crucial for such a system to operate as a true decentralized autonomous organization. 
+    A decentralized learning economy would be one in which the economic incentives are directly aligned with the learning outcomes on the platform.
+    Though Questbook is the first to implement the specifications in this paper, it is crucial that Questbook is no longer a centralized entity deciding what gets taught and learnt in the world.
+    \par
+    To make it truly decentralized the following will be crucial.
+    \subsection{Open Sourced}
+      Questbook will be completely open sourced and anyone is free to run their own instance of Questbook and the LearnT protocol.
+      Questbook itself will also be exposing APIs that can be used to build a thriving market of plugins on top of the platform itself, without having to fork Questbook.
+
+    \subsection{Proof-of-stake}
+      Questbook will transition into a Proof-of-stake consensus model for governance by staking Learn Coins.
+      Here are a few examples of governance decisions 
       \begin{itemize}
-        \item Creator Coins issuance using Proof of Stake or any decentralized consensus algorithms, instead of the current Proof of Authority model.
-        \item Learn Coins issuance using Proof of Stake or any decentralised consensus algorithms, instead of the current Proof of Authority model.
-        \item
-      \end{itemize}
-    \subsection{Interesting next questions}
-      \begin{itemize}
-        \item Can we build a consensus algorithm for defining learning outcomes?
-        \item Can we guarantee learners a job if a certain threshold of learning outcome is met?
-        \item Can we establish a consensus driven assessment algorithms?
+        \item API specifications
+        \item Incentive model updates
+        \item Core product updates and merging pull requests
+        \item Feed ranking algorithm 
       \end{itemize}
 
-  \pagebreak
-  Appendix
-  \pagebreak
-  \appendix
-  \section{Example}
-    Here we will illustrate end to end how the ecosystem will use the specifications and implementation.
-    \par
-    Acme Corp is a company that builds and sells subscription to a CRM software.
-    \par
-    Alice used to work at Acme Corp but recently started her own consulting firm to setup CRMs for companies. She runs a popular Youtube channel too about CRMs.
-    \par
-    Bob is a final year MBA student who wants to learn tools that are used in the industry.
-    \par
-    Charlie is a customer success executive who lost a job due to the pandemic and is looking to upskill himself to earn a new job.
-    \par
-    Danny is a freelancer who works with CRMs once in a while
-    \par
-    Acme Corp wants Alice to run Quests that it can hire as customer success executives at Acme Corp.
-    Acme Corp usually pays 10k USD to a hiring agency for every customer success hire they make. But they decide to put in 5,000 USD into finding a hire through Questbook. They buy 5,000 USD worth of learn coins and vote for Alice's Quest on \textit{Pro-User of Acme CRM} and buy 50 Alice Creator Coins.
-    \par
-    Alice typically makes 10k USD per month in her consulting firm. So, for her 5K is a welcome top up. She agrees to do the Quest for Acme Corp. She decides to do a series of 5 Quests.
-    They are : \textit{Introduction to CRMs, Installing Acme CRM, Importing all customers to Acme CRM, Tips and tricks for Acme CRM, Pro User of Acme CRM}.
-    The last one is what Acme Corp paid for, but Alice realized that to do a good job, she needs to take learners through all the hoops. She launches these Quests, where the pre-requisite for each quest is the Quest before it in the list above.
-    There is no pre-requisite for the first Quest.
-    \par
-    Bob joins the first Quest and Alice happily shares what she knows about CRMs by sharing a few of her own Youtube videos. Bob is able to quickly grasp the basics and Alice awards him the NFT-L.
-    \par
-    When the second Quest starts, Bob having the NFT-L of the previous Quest gets automatic entry to the Quest.
-    However Charlie also wants to join this Quest. He didn't want to join the Introduction Quest because he is already experienced in CRMs, just not Acme CRM.
-    So, he stakes 100USD worth of Learn Coins and tells Alice why he didn't join the first Quest. Alice sees his point and allows him into the second Quest. 
-    Both of them complete the Quest, Bob gets his previous NFT-L back and Charlie his 100USD worth of Learn Coins.
-    \par
-    Both Bob and Charlie move on to Quest three - \textit{Importing customers}. This time Danny shows up staking only 10 USD worth of Learn Coins. Alice is skeptical, but still lets him in.
-    Bob and Charlie complete the tasks that need to be done, but Danny slacks off. Alice ends the Quest, gives Bob and Charlie the NFT-L and Danny's 10 USD worth of learn coins are sent to the community pool. He doesn't get it back. 
-    \par
-    Again Bob and Charlie glide into the most interesting Quest \textit{Tips and Tricks}. This time Danny shows up again, staking 5 USD this time. 
-    Now, Alice knows Danny is just shopping around not serious about learning. Because if he were, he wouldn't have slacked in the previous Quest and would have put in a sizable stake to show seriousness.
-    So only Bob and Charlie participate in the Quest and complete it to Alice's statisfaction. 
-    \par 
-    Both Bob and Charlie have now become good friends with each other and with Alice. They casually move into the most important Quest - Pro user. 
-    This time Danny doesn't even show up. Everyone's happy. Bob and Charlie dig deep into all the wisdom Alice has to share and really become Pro users of Acme CRM. Alice, ofcourse grants both of them the NFT-Ls.
-    \par
-    Acme Corp sees that 2 people have completed the Quests, because they own 50 Alice Creator Coins they are informed first. They quickly check how the conversations went in each of the NFT-Ls. They're happy to see how well Alice conducted the sessions. 
-    They interview both Bob and Charlie directly with the CEOs not needing the initial rounds. Both of them get hired.
-    \par
-    Acme Corp sees this is way more efficient than paying a hiring agency. They set out a budget of 50K USD to hire the next 10 customer success executives. They vote for Alice and 2 more Youtubers like her.
-    It's a major success.
-    \par
-    Everyone lives happily ever after. Except Danny, he's now jobless.
-
-      
-        
-
-      
+    Questbook is fully committed to building the world's first \textit{University DAO}.
+    We fundamentally believe education should not be centralized and authoritarian.
 
 \end{document}
 
