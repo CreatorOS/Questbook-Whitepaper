@@ -3,16 +3,16 @@
 \usepackage{mathtools}
 
 \author{Authors}
-\title{LearnT - Specification for a decentralized learning economy}
+\title{LearnCoin - Specification for a decentralized learning economy}
 \begin{document}
   \maketitle
   \begin{abstract}
-    A decentralised learning economy in one in which a teacher is economically incentivized only to \textit{drive learning outcomes}.
-    This economy also determines what is taught and learnt in the world through a consensus model involving stakeholders who have skin in the game.
+    This paper lays out the specifications for a Univeristy DAO.
+    This DAO defines a \textit{decentralised learning economy} in which a teacher is economically incentivized only to \textit{drive learning outcomes}.
     \par
-    The market runs  with a native protocol token (also called “LearnT” or "Learn Coins"), which teachers earn by floating courses. 
-    Conversely, recruiters spend LearnT for being able to hire graduates of these courses. 
-    Teachers compete to attract best students and sizeable rewards from recruiters, thus freeing them off the burden of charging students. 
+    The economy runs  with a native protocol token called  \textit{Learn Coins}, which teachers earn by running courses. 
+    Community members stake Learn Coins to incentivize the best teachers to run these courses.
+    This economy grows the population of learners by making learning free, accessible and rewarding. %todo : rewarding -> ?
     \par
     This work introduces
     \begin{itemize}
@@ -22,74 +22,63 @@
       \item Verifiable and Auditable proofs of learning. 
         The complete set of events leading to the learning outcomes are publicly stored and accessible on IPFS.
         Every NFT-L references this \textit{trail of learning}
-      \item A new format of teaching and learning, and economic incentive structure for a fully functional end-to-end learning market.
       \item Learn Coins is the underlying currency that is used to vote on what and how the future of learning shapes. 
         We will touch upon the uses of this ERC-20 token multiple times in this paper.
     \end{itemize}
     \par
-    These specifications are being implemented on an app called Questbook - a learning app for professionals available across devices.
-
+    These specifications are implemented in Questbook - an app available on iOS and Android.
   \end{abstract}
-  \section{Introduction}
+  \section{Current Problems} %TODO - better title?
     Today,
     \begin{itemize}
-      \item The only way as of today to incentivize the teacher is to extract a fees from the learner. This does not give any incentive for the teacher to improve learning outcomes.There is no incentive reducing the number of students - rather forces them to increase the class size, earn more money, and deliver \textit{lesser} learning outcomes.
-      \item The current economic models completely leave out a crucial stakeholder in the learning process - the companies, organizations and individuals who recruit these learners. These are people usually with high paying capacity, most vested in skilled individuals - but yet not part of the economy.
-      \item The most popular ways of reporting that an individual posses a skill is either through a certificate issued by a certification programme or, worse, by self reporting them on social media. There are little or no ways to verify or audit these claims.
+      %low learning outcome, recruiters not paying, certificates are bogus
+      \item A teacher earns by charging a fees from the learner, making affordability a bottleneck to learning. The cost of education is increasing year on year. \cite{feesincrease}
+      \item Multiple studies show that learning is more effective in smaller classes \cite{starresearch}. 
+        But, the current incentive structures make it economically infeasible to conduct small classes. %TODO(ruchil) - "we need more money" quote
+      \item When learning happens, the community benefits. Yet, there is no community coordination to drive learning. %TODO(madhavan) - add crypto citations
+      \item Learning happens behind closed doors and there is no audit of the learning process. This is reflected in the elaborate recruitment processes most companies have. \cite{roundsofinterviewcount}
     \end{itemize}
-    Here we highlight some of the problems in the traditional mode of skill development and assessment. 
-    \subsection{Problems in - Incentives for teachers}
-      Most teachers are teaching on platforms like Teachable, Kajabi and Udemy - in the hope that people will pay them for what they are teaching. 
-      This means that the teacher cares only about the number of people coming into the course. The quality of course delivery and making an impact on the learners lives seems to be a distant secondary metric. Teaching is no longer about learning outcomes. It's turned into a popularity contest of attracting largest number of enrolments. 
+
+  \section{Solution}
+    \subsection{Affordability}
+      We will be proposing a formalized model where the teacher is incentivized by the community members. Community members vote on what gets taught by voting. They vote by staking money. When the teacher starts the course, they earn the stake that the community had committed.
       \par
-       Online education market placesare centralised and reward teachers for enrolments. We think this is fundamentally flawed and incentive structures are designed for a poor learning experience. 
-       Using decentralised systems we can create a far better incentive structures that are directly tied to learning outcomes. 
-       With LearnT, teachers will earn more without charging students - through small classes and ensuring learning outcomes.
-       
-    \subsection{Problems in - Incentives for learners}
-      Many learners get tricked into enrolling for courses without knowing how their lives will be transformed because of this course.
-      Learners, consciously or sub consciously, choose the best marketed course as ones to take up. 
-      When they do enroll on an online course they do not have skin in the game. 
-      Dropoffs are rampant and there is no incentive to acually learning from the course.
+      This means that anybody can learn from anyone. We're no longer bound by who are the learners who can afford to pay the price. This will eventually increase the total population of learners on the planet. People will have stronger affinity to become \textit{life long learners}.
+    \subsection{Class sizes}
+      Now the community stakes money on what is important to be taught. The better the learning outcomes of the learners who \textit{graduate} from the course, more value added to the community. By virtue of having the community vote and stake money on courses that get taught, we capture the market value of the course itself. The community as a whole, including individuals and organizations, have much higher spending power than the learners alone. This frees the teacher of the constraint of what a single learner can afford. That in turn means that they can earn as much through community stakes, if not more, with smaller classes.
       \par
-      With Questbook, learning is always free. 
-      Learners learn along with a small cohort of motivated peers interested in the same thing, with the guidance of an expert teacher.
-      We will be introducing the incentive structures that drive away non-serious learners.
-    \subsection{Problems in - Certification Verifiability}
-      \subsubsection{Contacting the issuing authority}
-        The only way to check if a certificate has not been tampered with or created fraudulently, one must contact the claimed issuing authority to verify if they actually issued the certificate. 
-        This process is usually non-automatable and cumbersome that most people end up giving the benefit of doubt to the applicant. 
-        \par
-        We will be proposing an on-chain certificate that will be verifiable and auditable in real-time.
-      \subsubsection{No history}
-        Most certification programs happen behind closed doors. If an individual produces a certificate it is impossible to know how the certificate was earned. There are probably no records, or even if they are - they aren't publicly viewable. 
-        \break
-        Now that most of the learning is now happening online over chat platforms like Slack, Discord, Telegram and Zoom, it is possible to have a record of the \textit{trail of learning}. In the solution we will be proposing, every skill certificate will be auditable using publicly available information.
-  \section{Solution and Specifications}
-    Questbook is a \textit{specification by implementation} of the proposed learning standards.
+      Smaller class sizes also imply more learning outcome \cite{classsize} - making the course even more valuable, kicking off a positive. feedback loop. We also present a formalized teaching model involving \textit{Quests} that accentuates the benefits of learning in small classes.
+    \subsection{Community Participation}
+      By having the community participate in the voting proces of what gets taught, we ensure that only the things that the community directly values actually gets taught. Often times, learners are misguided and undertake learning without knowing its applicability and its real world value. In a lot of courses, especially ones in which the learner is looking to increase economic mobility, awareness of the market value of what they learn is crucial.
+      \par
+      By having the community stake money, each course is vetted has an associated market value that learners can look up before enrolling. 
+    \subsection{Auditability}
+      We make all the information about what a learner has learnt and how public. This means that anyone can not only know what a person has learnt, but also make it possible to know the trail of events that led to the learning. 
+      \par
+      This allows the community to build trust on the education that happens on the platform.
+      Having trust on the quality of learners and their learning in a course can introduce many efficiancies in the community. One prominent efficiancy is in corporations cutting down the number of steps in the interview process. \cite{lesserroundsfortopcolleges}
+
+  \section{Specifications}
+    The entire economy is currently being deployed on Questbook - an app available on iOS and Android. In this section we will detail out the specifications of this open standard.
     \subsection{New format of learning - Quests}
-      We've traditionally been used to only a big-bang learning approach either in the form of years long or months long courses.
       On Questbook, every course is to be broken down into small bite-sized courses called Quests that are both atomic and independent.
       A Quest consists of 
       \begin{itemize}
         \item \textbf{A Questmaster} who will run the Quest
-        \item \textbf{A Questroom} where the participants can chat with each other and the Questmaster. At any point in time a Quest room can only have  a fixed number of participants - thereby, limiting the number of people who can participate in the Quest at any point of time.
+        \item \textbf{A Questroom} where the participants can chat with each other and the Questmaster. At any point in time a Questroom can only have  a fixed number of participants.
         \item \textbf{Quest material} is what the participants must read/watch before participating in the Quest room. These could be videos, blogs or podacasts that are required reading to complete a task in the Quest.
-        \item \textbf{Quest task} is what the participants must apply the learnings on. This is what the Questmaster will evaluate the participant on. E.g. \textit{Write a for loops in Python to draw a triangle}
         \item \textbf{A proof of learning} at the end of the Quest. A Questmaster approves a participant when they have mastered the material shared in the Quest. Once approved a non-fungible non-transferable token (certificate) is credited to the participant's wallet
       \end{itemize}
     \subsection{New Certification - NFT-L}
-      We propose NFT-Ls as an \textbf{open global standard} in issuing certificates against attaining a skill. This will be awarded upon completion of a particular Quest. These NFT-Ls consist of the following information.
+      We propose NFT-Ls as an \textbf{open global standard} as a \textit{proof of mastery}. This will be awarded upon completion of a particular Quest. These NFT-Ls consist of the following information.
       \subsubsection{Public Key}
         Every NFT-L (non-fungible token of learning), will be issued on the main Ethereum chain and queryable by the publickey to get further details about the issuance.
       \subsubsection{Issued By}
-        This is the public key of the Questmaster who ran the Quest. Who ran the Quest is a very important signal in who issued the Quest. We will see later that the incentives of the Questmaster are tightly tied to the quality of learning accrued by participants in the Quest. 
+        This is the public key of the Questmaster who ran the Quest. The incentives of the Questmaster are tightly tied to the quality of learning accrued by participants in the Quest, as we will see later. 
       \subsubsection{Issued To}
         The public key to whom the NFT-L has been issued. This is, unlike regular NFTs, \textbf{non-transferable}. 
       \subsubsection{Quest information}
         The Quest that this NFT-L was issued as a part of. Each Questmaster could potentially have multiple Quests running. 
-      \subsubsection{Time to complete}
-        How long it took for the participant to complete the Quest. Though not fool-proof, someone learning something faster than the others assuming they all started at a level ground is a valid signal in the quality of learning of an individual. 
       \subsubsection{Metadata}
         \begin{itemize}
           \item Date of issuance
@@ -101,34 +90,38 @@
     \subsection{Gating the quality of Quests}
         Only high quality Quests will be allowed on the platform.
         A high quality Quest is one that drives valuable learning outcomes. 
-        Individuals and Companies looking to hire talent can vote on what gets taught on the platform by staking Learn Coins on individual Quests.
+        The community can vote on what gets taught on the platform by staking Learn Coins on individual Quests.
         \par
-        The top \(n\) Quests every day will be allowed to start. Any Quest that is allowed to start, credits the staked Learn Coins to the creator.
+        The top \(n\) Quests every day will be allowed to start. 
+        When a Quest starts, the staked Learn Coins are credited to the Questmaster.
     \subsection{Cohort size}
-      Questbook recommends Questmasters start their first Quest with a small group of four participants. Gradually increasing the cohort size with experience. 
+      Questbook recommends Questmasters start their first Quest with a small group of four participants. Gradually increasing the cohort size. 
       Research shows that smaller class sizes drive better learning outcomes. %TODO(ruchil): add citation
+      \par 
+      To increase the class size beyond 4, the Questmaster must pay for each additional course student \(C_n\) defined by the following equation.
+      \[
+        C_n = M * (n-1)^2
+      \]
     \subsection{Gating participants}
-      All the users who have shown interest in parcipating in the Quest are listed for the Questmaster to approve entry to the Quest. They are prioritized based on the following two signals.
+      All the users who have shown interest in parcipating in the Quest are listed for the Questmaster to approve entry to the Quest. They are prioritized based on the following.
       \subsubsection{Staking an NFT-L}
-        The Questmaster can optionally define a pre-requisite NFT-L for every Quest. That means, people who have completed the other Quest will get an advantage - by getting an automated entry to the Quest.
-        This is also a way to tell the participants as to what knowledge is required to participate in this Quest to get the maximum benefits. 
+        The Questmaster can optionally define a pre-requisite NFT-L for every Quest. That means, people who have completed the pre-requisite Quest will get an advantage - by getting an automated entry to the Quest.
+        This tells the participants as to what knowledge is required to participate in this Quest to get the maximum benefits. 
       \subsubsection{Staking Learn Coins}
-        If there aren't enough applicants who already own a pre-requisite NFT-L, the other participants are sorted by how many Learn Coins they are willing to stake to complete the Quest.
-        We will see later that more the participant stakes, more they are invested in learning what is being shared in the Quest.
+        If there aren't enough applicants who already own a pre-requisite NFT-L, the other participants are sorted by how many Learn Coins they are willing to stake to complete the Quest. This is not a fees. The stake is returned to the learner when they complete the Quest. However, if they don't complete the Quest, the stake is burnt.
     \subsection{Time limit}
-      The Questmaster also sets their availability by setting a tentative duration to the Quest. The participants must complete the Quest before the specified time. 
-      Once the Quest is ended by the Questmaster, the participants can no longer get an NFT-L in this version of the Quest.
-      Again, this is to be respectful of the experts running these Quests. 
+      The Questmaster also sets a tentative duration to the Quest. The participants must complete the Quest before the specified time. 
+      Once the Quest is ended by the Questmaster, the participants can no longer get an NFT-L in this version of the Quest. If the participants haven't completed the Quest before the Questmaster ends the Quest, the stake is burnt.
     \subsection{Quest Edition}
-      The Questmaster can choose to run multiple editions one after another of the same Quest. Each edition opens up the voting mechanism again, where institutes and individuals pay the Questmaster for the new edition. This is how the Questmaster primarily earns on this platform.
+      The Questmaster can choose to run multiple editions one after another of the same Quest. Each edition opens up the voting mechanism again, where the community stakes fresh Learn Coins on the new edition of this Quest. 
   \section{Learning Process}
     \subsection{Choosing a Quest}
         There are various signals that will be made public to the users who are browsing through all the available Quests. We leave it to the open market dynamics to pick the winning Quests.
         The following are public information for the user to make an informed choice
         \begin{itemize}
-          \item \textbf{Questmaster Reputation }: Reputation of the Questmaster is a function of how many participants participated in all their Quests aggregated and the number of NFT-Ls they've issued. Indicating the quality of the Questmaster.
+          \item \textbf{Questmaster Reputation }: A function of social signals including satisfaction score, community votes, applicability of the NFT-Ls issued by this Questmaster.
           \item \textbf{Quest edition }: How many times has this Quest been run before. More it has been run, more it has been battle tested.
-          \item \textbf{Votes }: Number of Learn Coins paid to Questmaster to run this Quest - thereby suggesting the market value of the skill taught in this Quest. Resets to zero at every edition of the Quest.
+          \item \textbf{Votes }: Number of Learn Coins staked on this Quest - thereby suggesting the market value of the skill taught in this Quest. Resets to zero at every edition of the Quest.
           \item \textbf{Average time to complete Quest }: Those who have been awarded an NFT-L in an earlier edition of this Quest, how long did it take them to get it. Indication of time commitment required from the learner. 
           \item \textbf{Last issued NFT-L }:  When was the last NFT-L issued in any earlier or current edition of this Quest. This shows how active the Quest is right now. 
           \item \textbf{Pre-requisite NFT-L }: An NFT-L that is suggested pre-requisite to attend this Quest. Suggests what knowledge is required to make the most off of this Quest.
@@ -141,18 +134,18 @@
         Learning Material is only a small part of the learning process. Lot of people are used to assimilating information but never applying it. 
         Anyone is free to open these learning material. 
         The ones who want to master can choose to participate in the Quest by requesting an entry to the Quest.
-        Questbook focuses on Mastery.
+        Questbook focuses on Mastery. %TODO : JonB's diamond?
     \subsection{Requesting Entry}
         All the Quests are gated and number of participants limited. To participate, one must produce one of :
         \subsubsection{A pre-requisite NFT-L}
           If the learner owns the pre-requisite NFT-L they are given automatic entry to the Quest on a first come first serve basis. The NFT-L is automatically staked in the Quest.
         \subsubsection{Staking Learn Coins}
-          If the learner doesn't have the pre-requisite NFT-L and wants to participate, they can stake some Learn Coins.
+          If the learner doesn't have the pre-requisite NFT-L and wants to participate, they can stake some Learn Coins. This information is available to the Questmaster when they are selecting learners to allow.
     \subsection{Completing a Quest}
         \subsubsection{Public Chat}
           The Quest can be run in any format the Questmaster deems appropriate, by coordinating with the participants directly over a public chat. 
           Questbook recommends the Questmasters conduct all the communications in the public. Questbook automatically archives all the chats in a public repository.
-          This public repository can be accessed whenever someone wants to audit a particular NFT-L.
+          This public repository can be accessed whenever someone wants to audit a particular NFT-L issued in this Quest.
         \subsubsection{Request for NFT-L}
           The issuance of the NFT-L is initiated by the learner. The learner uploads a \textit{Request for NFT-L} as a special attachment in the Questroom chat.
         \subsubsection{Approval or Rejection of the NFT-L}
@@ -160,35 +153,34 @@
           If rejected, the chat continues and the learner can attempt a request any number of times.
         \subsubsection{Recovering the Stake}
           If the NFT-L is issued, the participants gets back, along with the new NFT-L, the staked NFT-L or the staked Learn Coins.
-          \break
-          If the participant is not able to get an NFT-L before the Quest ends, the staked NFT-L is burnt and the staked Learn Coins goes into a community pool.
+          \par
+          If the participant is not able to get an NFT-L before the Quest ends, the staked NFT-L is burnt and the staked Learn Coins and NFT-Ls are burnt.
   \section{Voting process}
     Voting for new Quests and re-runs of existing Quests is a core pillar of this economy. 
     Voting happens by staking Learn Coins on a particular Quest.
-    There are few reasons for the voting
+    Voting by staking captures the following.
     \begin{itemize}
       \item \textbf{Determining what needs to be taught on the platform, and in the world.}
-      \item Shows market demand for the learning outcomes - recruiters could vote to get access to potential hires.
+      \item Shows market demand for the learning outcomes - e.g. recruiters could vote to get access to potential hires,  NGOs can spread awareness.
       \item This is also how the Questmaster is incentivized monetarily. We don't want to charge the learners for learning.
     \end{itemize}
   \section{Uses of NFT-L}
-    It is uncertain as to where all NFT-Ls will be used, but it is clear that the application will be as wide, if not wider, as the expanse of certificates itself.
     \subsection{Job Opportunities}
       The institutions who had paid the Questmaster for a particular Quest, could have had the motive of building skills that they want to hire. Producing such an NFT-L to such institutes will be a great optimization in their hiring process.
     \subsection{Grants and Scholarships}
       Questbook will be working closely with institutions and organizations to give out grants like Gitcoin Grants or Scholarships from governments or other NGOs.
-  \section{Uses of a Staking}
+  \section{Uses of a Voting by Staking}
     \subsection{Access to graduates}
       The more you stake in a Quest, the sooner you know about the \textit{graduates} of that Quest.
-      The more the difference in your stake as against the next in line, the more the time difference between when you get access to the graduates as against the next.
+      The more the difference in your stake as against the next in line, the more the time difference between when you get access to the graduates as against the next. %TODO(madhavan) : equation
     \subsection{Recommending learners}
-      Having stake in the Quest, companies can recommend few of their employees to undergo the Quest to upskill themselves.
+      Having stake in the Quest, community can recommend few of their members to undergo the Quest to upskill themselves.
     \subsection{Access to audit}
       When the Quest is on-going, the chat history is not public. It is made public only when the Quest has ended.
       The users who have staked Learn Coins on a Quest, get access to chat history before the Quest has ended. 
       They get access to chat history as a function of Learn Coins staked.
     \subsection{Creator Benefits}
-      Creator may provide various advantages to the staking companies. Or, apps could be built on top of this layer. Some of the examples include 
+      Creator may provide various advantages to the members who have voted for their Quest. Or, apps could be built on top of this information layer. Some of the examples include 
       \begin{itemize}
         \item Priority inbox
         \item \textit{Guest Lectures} in the Quest
@@ -273,6 +265,10 @@
 
     Questbook is fully committed to building the world's first \textit{University DAO}.
     We fundamentally believe education should not be centralized and authoritarian.
+
+  \begin{thebibliography}{9}
+    \bibitem{starresearch} CLASS-SIZE POLICY: THE STAR EXPERIMENT AND RELATED CLASS-SIZE STUDIES, NCPEA	POLICY	BRIEF, October 2012
+  \end{thebibliography}
 
 \end{document}
 
