@@ -2,7 +2,7 @@
 \usepackage{multicol}
 \usepackage{mathtools}
 
-\author{Authors}
+\author{Work in progress}
 \title{LearnCoin - Specification for a decentralized learning economy}
 \begin{document}
   \maketitle
@@ -28,7 +28,7 @@
     \par
     These specifications are implemented in Questbook - an app available on iOS and Android.
   \end{abstract}
-  \section{Current Problems} %TODO - better title?
+  \section{Existing issues} 
     Today,
     \begin{itemize}
       %low learning outcome, recruiters not paying, certificates are bogus
@@ -45,13 +45,13 @@
       \par
       This means that anybody can learn from anyone. We're no longer bound by who are the learners who can afford to pay the price. This will eventually increase the total population of learners on the planet. People will have stronger affinity to become \textit{life long learners}.
     \subsection{Class sizes}
-      Now the community commits money on what is important to be taught. The better the learning outcomes of the learners who \textit{graduate} from the course, more value added to the community. By virtue of having the community vote and commits money on courses that get taught, we capture the market value of the course itself. The community as a whole, including individuals and organizations, have much higher spending power than the learners alone. This frees the teacher of the constraint of what a single learner can afford. That in turn means that they can earn as much through community commits, if not more, with smaller classes.
+      The community as a whole, including individuals and organizations, have much higher spending power than the learners alone. That in turn means that teachers can earn as much through community commits, if not more, with smaller classes.
       \par
       Smaller class sizes also imply more learning outcome \cite{classsize} - making the course even more valuable, kicking off a positive. feedback loop. We also present a formalized teaching model involving \textit{Quests} that accentuates the benefits of learning in small classes.
     \subsection{Community Participation}
       By having the community participate in the voting proces of what gets taught, we ensure that only the things that the community directly values actually gets taught. Often times, learners are misguided and undertake learning without knowing its applicability and its real world value. In a lot of courses, especially ones in which the learner is looking to increase economic mobility, awareness of the market value of what they learn is crucial.
       \par
-      By having the community put in money, each course is vetted has an associated market value that learners can look up before enrolling. 
+      
     \subsection{Auditability}
       We make all the information about what a learner has learnt and how public. This means that anyone can not only know what a person has learnt, but also make it possible to know the trail of events that led to the learning. 
       \par
@@ -93,7 +93,7 @@
         The community can vote on what gets taught on the platform by staking Learn Coins on individual Quests.
         \par
         The top \(n\) Quests every day will be allowed to start. 
-        When a Quest starts, the committed Learn Coins are credited to the Questmaster. These commitments stay anonymous (work-in-progress).
+        When a Quest starts, the committed Learn Coins are credited to the Questmaster.
     \subsection{Cohort size}
       Questbook recommends Questmasters start their first Quest with a small group of four participants. Gradually increasing the cohort size. 
       Research shows that smaller class sizes drive better learning outcomes. %TODO(ruchil): add citation
@@ -209,7 +209,7 @@
         TODO
         %L = \frac{S * s}{10 * (5*t_{accept} + t_{complete})} + E
       \]
-    \subsection{Ongoing incentivization}
+    \subsection{Ongoing incentivization (liquidity mining)}
       Every month 100,000 Learn Coins will be distributed to the top \(5\%\) of the Questmasters using the following weighting \(w\) 
       \subsubsection{Questmaster}
         \begin{itemize}
@@ -269,6 +269,15 @@
 
     Questbook is fully committed to building the world's first \textit{University DAO}.
     We fundamentally believe education should not be centralized and authoritarian.
+
+  \section{Open Questions}
+    The following are questions that are work in progress
+    \begin{itemize}
+      \item How do you ensure teachers do not use commitments as a way to extract fees? A teacher could say things like "I will allow you into  this Quest only if you vote with 100 Learn Coins or more"
+      \item The entire economy is being built to drive quality learning outcomes. How do we measure learning outcomes?
+      \item Equations for liquidity mining
+      \item Ensuring the correct order of access of graduates to committers. How do we ensure that Alice and Bob who have committed 100 Learn Coins and 50 Learn Coins respectively - get access to the chats and newly issued nft-ls only in the order defined by the equations. This becomes more relevant when the system is completely decentralized. The files to stay encrypted, and Bob gets access to the encrypted files only when it is his turn. None of the governance nodes or Charlie can see this information until it is their turn. This cryptography needs to be defined.
+    \end{itemize}
 
   \begin{thebibliography}{9}
     \bibitem{starresearch} CLASS-SIZE POLICY: THE STAR EXPERIMENT AND RELATED CLASS-SIZE STUDIES, NCPEA	POLICY	BRIEF, October 2012
